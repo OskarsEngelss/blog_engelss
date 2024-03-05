@@ -10,9 +10,10 @@ class Database {
         $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }
     //Iegūst datus
-    public function execute($query_string) {
+    public function execute($query_string, $params) {
         $query = $this->pdo->prepare($query_string);
-        $query->execute();
+        $query->execute($params);
+
         return $query;
     }
 }

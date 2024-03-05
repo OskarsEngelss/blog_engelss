@@ -6,13 +6,14 @@ require "Database.php";
 $config = require("config.php");
 
 $query = "SELECT * FROM posts";
-if (isset($_GET["id"]) && $_GET["id"]!=null) {
-    $id = $_GET["id"];
-    $query = "SELECT * FROM posts WHERE id=$id";
+$params = [];
+if (isset($_GET["id"]) && $_GET["id"]!="") {
+    $query .= " WHERE id=:id";
+    $params = [":id" => $_GET["id"]];
 }
 $db = new Database($config);
 $posts = $db
-        ->execute($query)
+        ->execute($query, $params)
         ->fetchAll();
 
 echo "<form>";
