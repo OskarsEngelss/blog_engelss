@@ -8,8 +8,8 @@ $config = require("config.php");
 $query = "SELECT * FROM posts";
 $params = [];
 if (isset($_GET["id"]) && $_GET["id"]!="") {
-    $query .= " WHERE id=:id";
-    $params = [":id" => $_GET["id"]];
+    $query .= " JOIN categories ON posts.category_id = categories.id WHERE categories.name = :name";
+    $params = [":name" => $_GET["id"]];
 }
 $db = new Database($config);
 $posts = $db
