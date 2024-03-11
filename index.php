@@ -9,11 +9,11 @@ $query = "SELECT * FROM posts";
 $params = [];
 if (isset($_GET["id"]) && $_GET["id"]!="") {
     $query .= " WHERE id=:id";
-    $params = [":id" => $_GET["id"]];
+    $params = [":id" => trim($_GET["id"])];
 }
 if (isset($_GET["name"]) && $_GET["name"]!="") {
     $query .= " JOIN categories ON posts.category_id = categories.id WHERE name=:name";
-    $params = [":name" => $_GET["name"]];
+    $params = [":name" => trim($_GET["name"])];
 }
 $db = new Database($config);
 $posts = $db
@@ -21,14 +21,14 @@ $posts = $db
         ->fetchAll();
 
 echo "<form>";
-echo "<input name='id' />";
+echo "<input name='id' value='" . ($_GET["id"] ?? "") . "' />";
 echo "<button>Submit ID</button>";
 echo "</form>";
 
 echo "<br>";
 
 echo "<form>";
-echo "<input name='name' />";
+echo "<input name='name' value='" . ($_GET["name"] ?? "") . "' />";
 echo "<button>Submit Category name</button>";
 echo "</form>";
 
