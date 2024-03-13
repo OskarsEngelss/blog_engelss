@@ -1,8 +1,10 @@
-/*
-CREATE DATABASE blog_engelss;
-USE blog_engelss;
+USE blog_IPb22;
+
+DROP TABLE posts;
+DROP TABLE categories;
+
 CREATE TABLE posts (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	title VARCHAR(255) NOT NULL
 );
 
@@ -12,33 +14,48 @@ VALUES
 ("My First Blog Post"),
 ("My Second Blog Post");
 
+
+-- Kategoriju funkcionalitāte
+
+-- 1. Izveido tabulu
 CREATE TABLE categories (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(255) NOT NULL,
-	description TEXT 
+	description TEXT,
 );
 
+-- 2. Ievieto datus tabulā, lai vēlāk nav fail
 INSERT INTO categories
-(name, description)
+(name)
 VALUES
-("sport", ""),
-("music", ""),
-("food", "");
+("sport"),
+("music"),
+("food");
 
-
+-- 3. Pievieno category_id posts tabulai
 ALTER TABLE posts 
-ADD category_id INT NOT NULL REFERENCES categories(id);
+ADD category_id INT NOT NULL DEFAULT 1;
 
-UPDATE posts
-SET category_id = (SELECT id FROM categories WHERE NAME = "sport")
-WHERE id = 1;
+-- 4. Izveido ārējo atslēgu
+ALTER TABLE posts
+ADD FOREIGN KEY (category_id) REFERENCES categories(id);
 
+-- 5. Izmaina nepieciešamos category_id
 UPDATE posts
-SET category_id = (SELECT id FROM categories WHERE NAME = "food")
+SET category_id = 3
 WHERE id = 2;
+
+
+SELECT * FROM posts;
 
 SELECT * FROM posts
 JOIN categories
-ON posts.category_id = categories.id
-WHERE name = "sport";
-*/
+ON posts.category_id = categories.id;
+
+
+
+
+
+
+
+
