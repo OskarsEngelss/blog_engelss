@@ -11,11 +11,11 @@
   <button>Filter by category</button>
 </form>
 
-<h1>Posts</h1>
+<h1>Posts:</h1>
 
 <ul>
 <?php foreach($posts as $post) { ?>
-  <li> <?= $post["title"]?> </li>
+  <li> <?=$post["title"]?> </li>
 <?php } ?>
 </ul>
 

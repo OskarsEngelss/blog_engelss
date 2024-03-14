@@ -8,5 +8,8 @@ if ($url == "/about") {
     require "controllers/index.php";
 } else if ($url == "/story") {
     require "controllers/story.php";
+} else {
+    http_response_code(404);
+    require "controllers/404.php";
 }
 ?>
