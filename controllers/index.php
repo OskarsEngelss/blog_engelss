@@ -28,3 +28,4 @@ $posts = $db
           
 $title = "Engelss Posts";
 require "views/index.view.php";
+?>
