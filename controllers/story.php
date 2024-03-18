@@ -1,7 +1,7 @@
 <?php
 
 // Ieraksti bloga vietnes nosaukumu!
-$title = "";
+$title = "Adventure";
 $programmers = ["Jānis Mārtiņš", "Oskars", "Emīls", "Edmunds", "Oskars", "Adrians", "Ralfs", "Railijs Didzis", "Kristers", "Roberts Aldis", "Gustavs", "Kristaps Imants", "Elvis", "Adrians", "Matīss Mareks", "Markus", "Kristers", "Marsels", "Kristaps Toms", "Eduards", "Jēkabs"] ;
 
 echo "<h1>The Blog Revolution: A Tale of the Popular Blogging Platform <em>$title</em></h1>";
