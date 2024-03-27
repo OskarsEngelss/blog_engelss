@@ -6,11 +6,21 @@
 <form method="POST">
     <lable>
         Title:
-        <input name='title'/>
+        <input name='title' value="<?=($_POST["title"] ?? "")?>"/>
+        <?php if(isset($errors["title"])) { ?> 
+            <p class="invalid-data"><?= $errors["title"] ?></p>
+        <?php } ?>
     </lable>
     <lable>
         Category:
-        <input name='category'/>
+        <select name="category">
+            <option value="sport">sport</option>
+            <option value="music">music</option>
+            <option value="food">food</option>
+        </select>
+        <?php if(isset($errors["category"])) { ?> 
+            <p class="invalid-data"><?= $errors["category"] ?></p>
+        <?php } ?>
     </lable>
     <button>Create</button>
 </form>
