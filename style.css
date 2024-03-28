@@ -70,3 +70,13 @@ label {
   color: red;
   font-size: 0.8em;
 }
+
+.delete-form {
+  display: inline-block;
+}
+
+.delete-button {
+  width: 65px;
+  background-color: rgb(255, 104, 104);
+  cursor: pointer;
+}

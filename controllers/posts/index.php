@@ -27,5 +27,5 @@ $posts = $db
           ->fetchAll();
           
 $title = "Engelss Posts";
-require "views/posts.view.php";
+require "views/posts/index.view.php";
 ?>
