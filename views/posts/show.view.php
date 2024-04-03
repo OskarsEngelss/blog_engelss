@@ -7,6 +7,7 @@
     <button class="delete-button">Delete</button>
 </form>
 
+<h1>Edit</h1>
 <form method="POST">
     <lable>
         Title:
