@@ -56,6 +56,11 @@ a {
   margin: 0 30px 0 30px;
   font-size: 23px;
   text-decoration: none;
+  color: inherit;
+}
+
+.posts {
+  font-size: inherit;
 }
 
 li {
