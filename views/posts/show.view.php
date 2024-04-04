@@ -7,27 +7,7 @@
     <button class="delete-button">Delete</button>
 </form>
 
-<h1>Edit</h1>
-<form method="POST">
-    <lable>
-        Title:
-        <input name='title' value="<?=($_POST["title"] ?? $post["title"])?>"/>
-        <?php if(isset($errors["title"])) { ?> 
-            <p class="invalid-data"><?= $errors["title"] ?></p>
-        <?php } ?>
-    </lable>
-    <lable>
-        Category:
-        <select name="category">
-            <option value="sport">sport</option>
-            <option value="music">music</option>
-            <option value="food">food</option>
-        </select>
-        <?php if(isset($errors["category"])) { ?> 
-            <p class="invalid-data"><?= $errors["category"] ?></p>
-        <?php } ?>
-    </lable>
-    <button>EDIT</button>
-</form>
+<br>
+<a href="/edit?id=<?=$post["id"]?>">Edit</a>
 
 <?php require "views/components/footer.php" ?>
