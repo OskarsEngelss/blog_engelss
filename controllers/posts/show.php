@@ -10,6 +10,6 @@ $params = [
 
 $post = $db->execute($query, $params)->fetch();
           
-$title = "Engelss Posts";
+$title = $post["title"];
 require "views/posts/show.view.php";
 ?>
