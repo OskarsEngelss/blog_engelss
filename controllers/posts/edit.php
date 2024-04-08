@@ -4,8 +4,7 @@ require "Database.php";
 
 $config = require("config.php");
 $db = new Database($config);
-
-$query = "SELECT * FROM posts WHERE id=:id";
+$query = "SELECT posts.id, posts.title, posts.category_id, categories.name FROM posts JOIN categories ON posts.category_id = categories.id WHERE posts.id=:id";
 $params = [
     ":id" => $_GET["id"]
 ];

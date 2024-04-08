@@ -15,9 +15,9 @@
     <lable>
         Category:
         <select name="category">
-            <option value="sport" <?= $post["category_id"] == 1 ? "selected" : ""?>>sport</option>
-            <option value="music" <?= $post["category_id"] == 2 ? "selected" : ""?>>music</option>
-            <option value="food" <?= $post["category_id"] == 3 ? "selected" : ""?>>food</option>
+            <option value="sport" <?= ($_POST["category"] ?? $post["name"]) == "sport" ? "selected" : ""?>>sport</option>
+            <option value="music" <?= ($_POST["category"] ?? $post["name"]) == "music" ? "selected" : ""?>>music</option>
+            <option value="food" <?= ($_POST["category"] ?? $post["name"]) == "food" ? "selected" : ""?>>food</option>
         </select>
         <?php if(isset($errors["category"])) { ?> 
             <p class="invalid-data"><?= $errors["category"] ?></p>
