@@ -1,5 +1,5 @@
 <?php
-require "Database.php";
+require "Core/Database.php";
 $config = require("config.php");
 $db = new Database($config);
 

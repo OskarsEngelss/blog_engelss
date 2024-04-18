@@ -1,6 +1,6 @@
 <?php
 session_start();
 
-require "functions.php";
-require "router.php";
+require "Core/functions.php";
+require "Core/router.php";
 ?>
