@@ -13,5 +13,24 @@ class Validator {
     static public function category($category, $categoryList) {
         return in_array($category, $categoryList);
     }
+
+    static public function email($data) {
+        return filter_var($data, FILTER_VALIDATE_EMAIL);
+    }
+
+    static public function password($data) {
+        $minLength = 8;
+
+        $uppercaseRegex = '/[A-Z]/';
+        $lowercaseRegex = '/[a-z]/';
+        $numberRegex = '/[0-9]/';
+        $specialCharRegex = '/[!@#$%^&*()-_=+{};:,<.>}]/';
+
+        return  strlen($data) >= $minLength &&
+                preg_match($uppercaseRegex, $data) &&
+                preg_match($lowercaseRegex, $data) &&
+                preg_match($numberRegex, $data) &&
+                preg_match($specialCharRegex, $data);
+    }
 }
 ?>
