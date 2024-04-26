@@ -1,9 +1,9 @@
 <?php
-
 return [
   "host" => "localhost",
-  "dbname" => "blog_engelss",
+  "dbname" => "Library_IPb22",
   "user" => "root",
-  "password" => "",
+  "password" => "root",
   "charset" => "utf8mb4"
 ];
+?>

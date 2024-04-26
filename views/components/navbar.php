@@ -1,14 +1,22 @@
 <header>
-  <nav>
-    <a href="/">Posts</a>
-    <a href="/about">About Us</a>
-    <a href="/story">Story</a>
-    <a href="/create-posts">Create posts</a>
-    <?php if (!isset($_SESSION["user"])) { ?>
-      <a href="/register">Register</a>
-      <a href="/login">Login</a>
+  <h1 class="storeName"><a class="storeNameLink" href="/">Angelss Reads</a></h1>
+  <div class="adminPannel">
+    <?php if (isset($_SESSION["user"])) { ?>
+        <?php if (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"]) { ?>
+          <form action="/book-add" class="adminButtonCircle">
+            <button class="adminButtons">New Book</button>
+          </form>
+          <form action="/book-delete" class="adminButtonCircle">
+            <button class="adminButtons">Delete</button>
+            </form>
+        <?php } ?>
+        <form method="POST" action="/logout" class="adminButtonCircle">
+          <button class="adminButtons">Logout</button>
+        </form> 
     <?php } else { ?>
-      <a href="/home">Home</a>
+      <form method="POST" action="/" class="adminButtonCircle">
+        <button class="adminButtons">Home</button>
+      </form> 
     <?php } ?>
-  </nav>
+  </div>
 </header>

@@ -10,12 +10,23 @@ class Validator {
                 && strlen($data) <= $max;
     }
 
-    static public function category($category, $categoryList) {
-        return in_array($category, $categoryList);
+    static public function number($data, $min = 0, $max = INF) {
+        $data = trim($data);
+
+        return  is_numeric($data) 
+                && strlen($data) >= $min 
+                && strlen($data) <= $max;
+    }
+
+    static public function date($date) {
+        $date = explode('-', $date);
+        $date[2] = explode('T', $date[2]);
+
+        return  checkdate($date[1],$date[2][0],$date[0]);
     }
 
     static public function email($data) {
-        return filter_var($data, FILTER_VALIDATE_EMAIL);
+        return  filter_var($data, FILTER_VALIDATE_EMAIL);
     }
 
     static public function password($data) {

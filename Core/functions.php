@@ -19,4 +19,18 @@ function guest() {
       die();
   }
 }
+
+function is_admin() {
+  if (isset($_SESSION["is_admin"]) && !$_SESSION["is_admin"]) {
+      header("Location: /");
+      die();
+  }
+}
+
+function is_available($data) {
+  if ($data <= 0) {
+    header("Location: /");
+    die();
+  }
+}
 ?>
